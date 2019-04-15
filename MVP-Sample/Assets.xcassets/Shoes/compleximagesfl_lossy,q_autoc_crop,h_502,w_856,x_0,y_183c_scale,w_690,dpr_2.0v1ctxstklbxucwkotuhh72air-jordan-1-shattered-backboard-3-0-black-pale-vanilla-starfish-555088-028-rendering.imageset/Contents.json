@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "filename" : "compleximagesfl_lossy,q_autoc_crop,h_502,w_856,x_0,y_183c_scale,w_690,dpr_2.0v1ctxstklbxucwkotuhh72air-jordan-1-shattered-backboard-3-0-black-pale-vanilla-starfish-555088-028-rendering.jpg",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

@@ -1,0 +1,30 @@
+{
+    "code": 0,
+    "msg": "success",
+    "body": [
+        {
+            "imageName": "banner1",
+            "url": "https://github.com/powerwolf543"
+        },
+        {
+            "imageName": "banner2",
+            "url": "https://github.com/powerwolf543/Swift-MVP-Sample"
+        },
+        {
+            "imageName": "banner3",
+            "url": "https://github.com/powerwolf543"
+        },
+        {
+            "imageName": "banner4",
+            "url": "https://github.com/powerwolf543/Swift-MVP-Sample"
+        },
+        {
+            "imageName": "banner5",
+            "url": "https://github.com/powerwolf543"
+        },
+        {
+            "imageName": "banner6",
+            "url": "https://github.com/powerwolf543/Swift-MVP-Sample"
+        }
+    ]
+}
