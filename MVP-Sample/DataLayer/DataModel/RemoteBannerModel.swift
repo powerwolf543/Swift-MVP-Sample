@@ -1,5 +1,5 @@
 //
-//  BannerModel.swift
+//  RemoteBannerModel.swift
 //  MVP-Sample
 //
 //  Created by NixonShih on 2019/4/14.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct BannerModel: Codable {
+struct RemoteBannerModel: Codable {
     let imageName: String
     let url: String
 }

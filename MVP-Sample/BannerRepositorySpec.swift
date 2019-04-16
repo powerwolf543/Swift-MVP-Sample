@@ -10,6 +10,6 @@ import Foundation
 
 protocol BannerRepositorySpec {
     
-    typealias FetchBannerCompletionHandler = (Result<[BannerModel], Error>) -> ()
+    typealias FetchBannerCompletionHandler = (Result<[RemoteBannerModel], Error>) -> ()
     func fetchBanners(_ completionHandler: @escaping FetchBannerCompletionHandler)
 }

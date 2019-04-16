@@ -10,9 +10,9 @@ import Foundation
 
 struct BannerFetcher: NetworkFetchable {
     
-    typealias DataModel = [BannerModel]
+    typealias DataModel = [RemoteBannerModel]
     
-    func fire(_ completionHandler: @escaping (Result<[BannerModel], NetworkError>) -> ()) {
+    func fire(_ completionHandler: @escaping (Result<[RemoteBannerModel], NetworkError>) -> ()) {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             let data = self.getDummyData()

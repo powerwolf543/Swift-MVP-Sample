@@ -24,9 +24,9 @@ protocol ShoesListBannerPresenterSpec {
     func didSelect(at index: Int)
 }
 
-class ShoesListBannerPresenter: ShoesListBannerPresenterSpec {
+class ShoesListBannerPresenter<AnyFetchBannerUseCase>: ShoesListBannerPresenterSpec where AnyFetchBannerUseCase: FetchDataUseCaseSpec, AnyFetchBannerUseCase.DataModel == [BannerModel] {
     
-    init(fetchBannerUseCase: FetchBannerUseCaseSpec, router: ShoesListBannerRouterSpec) {
+    init(fetchBannerUseCase: AnyFetchBannerUseCase, router: ShoesListBannerRouterSpec) {
         self.fetchBannerUseCase = fetchBannerUseCase
         self.router = router
     }
@@ -37,7 +37,7 @@ class ShoesListBannerPresenter: ShoesListBannerPresenterSpec {
     func fetchBanners() {
         if banners.isEmpty { self.eventReceiver?.receivedEventOfStartLoading() }
         
-        fetchBannerUseCase.fetchBanners { [weak self] (result) in
+        fetchBannerUseCase.fetchDataModel { [weak self] (result) in
             guard let self = self else { return }
             switch result {
             case .success(let dataModel):
@@ -54,13 +54,13 @@ class ShoesListBannerPresenter: ShoesListBannerPresenterSpec {
     }
     
     func didSelect(at index: Int) {
-        guard let url = URL(string: banners[index].url) else { return }
+        guard let url = banners[index].url else { return }
         router.pushWebView(with: url)
     }
     
     // MARK: private
     
     private var banners: [BannerModel] = []
-    private let fetchBannerUseCase: FetchBannerUseCaseSpec
+    private let fetchBannerUseCase: AnyFetchBannerUseCase
     private let router: ShoesListBannerRouterSpec
 }

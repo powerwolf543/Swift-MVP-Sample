@@ -8,23 +8,30 @@
 
 import Foundation
 
-protocol FetchBannerUseCaseSpec {
+struct FetchBannerUseCase: FetchDataUseCaseSpec {
     
-    typealias FetchBannersUseCaseCompletionHandler = (_ books: Result<[BannerModel], Error>) -> ()
-    func fetchBanners(_ completionHandler: @escaping FetchBannersUseCaseCompletionHandler)
-}
-
-struct FetchBannerUseCase: FetchBannerUseCaseSpec {
+    typealias DataModel = [BannerModel]
     
     init(repository: BannerRepositorySpec) {
         self.repository = repository
     }
     
-    func fetchBanners(_ completionHandler: @escaping FetchBannersUseCaseCompletionHandler) {
-        repository.fetchBanners(completionHandler)
+    func fetchDataModel(_ completionHandler: @escaping FetchDataModelUseCaseCompletionHandler) {
+        repository.fetchBanners { (result) in
+            switch result {
+            case .success(let dataModel):
+                completionHandler(Result.success(dataModel.map(self.mapBanner)))
+            case .failure(let error):
+                completionHandler(Result.failure(error))
+            }
+        }
     }
     
     // MARK: private
     
     private let repository: BannerRepositorySpec
+    
+    private func mapBanner(_ remoteBanner: RemoteBannerModel) -> BannerModel {
+        return BannerModel(imageName: remoteBanner.imageName, url: URL(string: remoteBanner.url))
+    }
 }
