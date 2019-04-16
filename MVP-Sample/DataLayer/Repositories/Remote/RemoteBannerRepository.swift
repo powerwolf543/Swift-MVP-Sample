@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct RemoteBannerRepository<AnyNetworkFetchable>: BannerRepositorySpec where AnyNetworkFetchable: NetworkFetchable, AnyNetworkFetchable.DataModel == [BannerModel] {
+struct RemoteBannerRepository<AnyNetworkFetchable>: BannerRepositorySpec where AnyNetworkFetchable: NetworkFetchable, AnyNetworkFetchable.DataModel == [RemoteBannerModel] {
     
     init(fetcher: AnyNetworkFetchable) {
         self.fetcher = fetcher

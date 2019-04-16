@@ -41,7 +41,7 @@
 		25AE9748226357AC00708680 /* banner_remote_source.json in Resources */ = {isa = PBXBuildFile; fileRef = 25AE9747226357AC00708680 /* banner_remote_source.json */; };
 		25AE974A22635B1B00708680 /* RemoteBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE974922635B1B00708680 /* RemoteBaseModel.swift */; };
 		25AE974C22635D7200708680 /* BannerFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE974B22635D7200708680 /* BannerFetcher.swift */; };
-		25AE974E22635DBF00708680 /* BannerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE974D22635DBF00708680 /* BannerModel.swift */; };
+		25AE974E22635DBF00708680 /* RemoteBannerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE974D22635DBF00708680 /* RemoteBannerModel.swift */; };
 		25AE975022635E8500708680 /* RemoteBannerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE974F22635E8500708680 /* RemoteBannerRepository.swift */; };
 		25AE975222635EB500708680 /* BannerRepositorySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE975122635EB500708680 /* BannerRepositorySpec.swift */; };
 		25AE975422635FB700708680 /* FetchBannerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE975322635FB700708680 /* FetchBannerUseCase.swift */; };
@@ -57,6 +57,8 @@
 		ED0AFE73225DE4DD007CF4F1 /* LocalShoesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0AFE72225DE4DD007CF4F1 /* LocalShoesRepository.swift */; };
 		ED0AFE75225DE63E007CF4F1 /* RemoteShoesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0AFE74225DE63E007CF4F1 /* RemoteShoesRepository.swift */; };
 		ED0AFE79225DF19E007CF4F1 /* NotificationUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0AFE78225DF19E007CF4F1 /* NotificationUtility.swift */; };
+		ED58EA69226586E800B7E7D5 /* BannerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED58EA68226586E800B7E7D5 /* BannerModel.swift */; };
+		ED58EA6B2265ACD200B7E7D5 /* FetchDataUseCaseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED58EA6A2265ACD200B7E7D5 /* FetchDataUseCaseSpec.swift */; };
 		ED70702922608C1300FEDACD /* ShoesListViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED70702822608C1300FEDACD /* ShoesListViewBuilder.swift */; };
 		ED70702D22608D8600FEDACD /* ViewBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED70702C22608D8600FEDACD /* ViewBuilderSpec.swift */; };
 		ED70702F22608EAA00FEDACD /* UIStoryboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED70702E22608EAA00FEDACD /* UIStoryboard+Extensions.swift */; };
@@ -112,7 +114,7 @@
 		25AE9747226357AC00708680 /* banner_remote_source.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = banner_remote_source.json; sourceTree = "<group>"; };
 		25AE974922635B1B00708680 /* RemoteBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteBaseModel.swift; sourceTree = "<group>"; };
 		25AE974B22635D7200708680 /* BannerFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerFetcher.swift; sourceTree = "<group>"; };
-		25AE974D22635DBF00708680 /* BannerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerModel.swift; sourceTree = "<group>"; };
+		25AE974D22635DBF00708680 /* RemoteBannerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteBannerModel.swift; sourceTree = "<group>"; };
 		25AE974F22635E8500708680 /* RemoteBannerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteBannerRepository.swift; sourceTree = "<group>"; };
 		25AE975122635EB500708680 /* BannerRepositorySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerRepositorySpec.swift; sourceTree = "<group>"; };
 		25AE975322635FB700708680 /* FetchBannerUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchBannerUseCase.swift; sourceTree = "<group>"; };
@@ -128,6 +130,8 @@
 		ED0AFE72225DE4DD007CF4F1 /* LocalShoesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalShoesRepository.swift; sourceTree = "<group>"; };
 		ED0AFE74225DE63E007CF4F1 /* RemoteShoesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteShoesRepository.swift; sourceTree = "<group>"; };
 		ED0AFE78225DF19E007CF4F1 /* NotificationUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationUtility.swift; sourceTree = "<group>"; };
+		ED58EA68226586E800B7E7D5 /* BannerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerModel.swift; sourceTree = "<group>"; };
+		ED58EA6A2265ACD200B7E7D5 /* FetchDataUseCaseSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchDataUseCaseSpec.swift; sourceTree = "<group>"; };
 		ED70702822608C1300FEDACD /* ShoesListViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoesListViewBuilder.swift; sourceTree = "<group>"; };
 		ED70702C22608D8600FEDACD /* ViewBuilderSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBuilderSpec.swift; sourceTree = "<group>"; };
 		ED70702E22608EAA00FEDACD /* UIStoryboard+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extensions.swift"; sourceTree = "<group>"; };
@@ -176,6 +180,7 @@
 		253CCF28225F963E00A16EFE /* DomainLayer */ = {
 			isa = PBXGroup;
 			children = (
+				ED58EA672265867500B7E7D5 /* DataModel */,
 				253CCF29225F966200A16EFE /* UseCases */,
 			);
 			path = DomainLayer;
@@ -186,6 +191,7 @@
 			children = (
 				253CCF2A225F96C000A16EFE /* FetchShoesUseCase.swift */,
 				25AE975322635FB700708680 /* FetchBannerUseCase.swift */,
+				ED58EA6A2265ACD200B7E7D5 /* FetchDataUseCaseSpec.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -280,9 +286,8 @@
 		2548F4972198350A00B66266 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				2548F4982198350A00B66266 /* ShoesModel.swift */,
+				25AE974D22635DBF00708680 /* RemoteBannerModel.swift */,
 				25AE974922635B1B00708680 /* RemoteBaseModel.swift */,
-				25AE974D22635DBF00708680 /* BannerModel.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -418,6 +423,15 @@
 			path = Local;
 			sourceTree = "<group>";
 		};
+		ED58EA672265867500B7E7D5 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				2548F4982198350A00B66266 /* ShoesModel.swift */,
+				ED58EA68226586E800B7E7D5 /* BannerModel.swift */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -525,12 +539,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2548F4B02198350A00B66266 /* UITableView+Extensions.swift in Sources */,
+				ED58EA6B2265ACD200B7E7D5 /* FetchDataUseCaseSpec.swift in Sources */,
 				ED0AFE79225DF19E007CF4F1 /* NotificationUtility.swift in Sources */,
 				25AE973E2261D82600708680 /* SetReuseViewModelable.swift in Sources */,
+				ED58EA69226586E800B7E7D5 /* BannerModel.swift in Sources */,
 				25AE97622263A88F00708680 /* ShoesListBannerRouter.swift in Sources */,
 				25AFD8A921A2FCEE007CF439 /* ProjectNameHelper.swift in Sources */,
 				2548F45F219830DE00B66266 /* AppDelegate.swift in Sources */,
-				25AE974E22635DBF00708680 /* BannerModel.swift in Sources */,
+				25AE974E22635DBF00708680 /* RemoteBannerModel.swift in Sources */,
 				257DA8A421A3157F00BA494F /* ShoesListFetcher.swift in Sources */,
 				25AE975422635FB700708680 /* FetchBannerUseCase.swift in Sources */,
 				2548F4B12198350A00B66266 /* UICollectionView+Extensions.swift in Sources */,

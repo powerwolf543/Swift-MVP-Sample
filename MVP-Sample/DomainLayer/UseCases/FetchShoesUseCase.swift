@@ -8,19 +8,15 @@
 
 import Foundation
 
-protocol FetchShoesUseCaseSpec {
+struct FetchShoesUseCase: FetchDataUseCaseSpec {
     
-    typealias FetchShoesUseCaseCompletionHandler = (_ books: Result<[ShoesModel], Error>) -> ()
-    func fetchShoes(_ completionHandler: @escaping FetchShoesUseCaseCompletionHandler)
-}
-
-struct FetchShoesUseCase: FetchShoesUseCaseSpec {
+    typealias DataModel = [ShoesModel]
     
     init(repository: ShoesRepositorySpec) {
         self.repository = repository
     }
     
-    func fetchShoes(_ completionHandler: @escaping FetchShoesUseCaseCompletionHandler) {
+    func fetchDataModel(_ completionHandler: @escaping FetchDataModelUseCaseCompletionHandler) {
         repository.fetchShoes(completionHandler)
     }
     

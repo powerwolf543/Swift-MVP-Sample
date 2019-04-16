@@ -31,10 +31,10 @@ struct ShoesListViewInitialModel {
     let title: String
 }
 
-class ShoesListPresenter: ShoesListPresenterSpec {
+class ShoesListPresenter<AnyFetchShoesUseCase>: ShoesListPresenterSpec where AnyFetchShoesUseCase: FetchDataUseCaseSpec, AnyFetchShoesUseCase.DataModel == [ShoesModel] {
     
-    init(fetchShoesUseCase: FetchShoesUseCaseSpec,
-         fetchLocalShoesUseCaseSpec: FetchShoesUseCaseSpec,
+    init(fetchShoesUseCase: AnyFetchShoesUseCase,
+         fetchLocalShoesUseCaseSpec: AnyFetchShoesUseCase,
          router: ShoesListRouterSpec,
          nameProvider: NameProvidable) {
         
@@ -71,8 +71,8 @@ class ShoesListPresenter: ShoesListPresenterSpec {
     
     // MARK: Private
     
-    private let fetchShoesUseCase: FetchShoesUseCaseSpec
-    private let fetchLocalShoesUseCaseSpec: FetchShoesUseCaseSpec
+    private let fetchShoesUseCase: AnyFetchShoesUseCase
+    private let fetchLocalShoesUseCaseSpec: AnyFetchShoesUseCase
     private let router: ShoesListRouterSpec
     private let nameProvider: NameProvidable
     private var shoes: [ShoesModel] = []
@@ -81,7 +81,7 @@ class ShoesListPresenter: ShoesListPresenterSpec {
         
         if shoes.isEmpty { eventReceiver?.receivedEventOfShowLoadingUI() }
         
-        fetchShoesUseCase.fetchShoes { [weak self] (result) in
+        fetchShoesUseCase.fetchDataModel { [weak self] (result) in
             guard let self = self else { return }
             
             switch result {
@@ -100,7 +100,7 @@ class ShoesListPresenter: ShoesListPresenterSpec {
     
     private func fetchLoaclShoes() {
         
-        fetchLocalShoesUseCaseSpec.fetchShoes { [weak self] (result) in
+        fetchLocalShoesUseCaseSpec.fetchDataModel { [weak self] (result) in
             guard let self = self else { return }
             switch result {
             case .success(let shoes):
