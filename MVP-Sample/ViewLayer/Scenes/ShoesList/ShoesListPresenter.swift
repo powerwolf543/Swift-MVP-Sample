@@ -14,20 +14,25 @@ protocol ShoesListPresenterSpec {
     var rowOfList: Int { get }
     
     func setup()
-    func fetchData()
+    func viewWillAppear()
+    func didDropDownList()
     func getCellModel(by row: Int) -> ShoesListCellModel
     func didSelect(at row: Int) 
 }
 
 protocol ShoesListViewEventReceiverable: class {
-    func receivedEventOfSetupViews(with initialModel: ShoesListViewInitialModel)
+    func receivedEventOfSetupViews(with setupModel: ShoesListViewSetupModel)
     func receivedEventOfRefreshList()
     func receivedEventOfShowLoadingUI()
     func receivedEventOfShowAlert(title: String, content: String)
     func receivedEventOfShowFailView()
 }
 
-struct ShoesListViewInitialModel {
+protocol ShoesListSubpresenterOfBannerSpec {
+    func receivedEventOfReloadFromSuperPresenter()
+}
+
+struct ShoesListViewSetupModel {
     let title: String
 }
 
@@ -36,11 +41,13 @@ class ShoesListPresenter<AnyFetchShoesUseCase>: ShoesListPresenterSpec where Any
     init(fetchShoesUseCase: AnyFetchShoesUseCase,
          fetchLocalShoesUseCaseSpec: AnyFetchShoesUseCase,
          router: ShoesListRouterSpec,
+         bannerPresenter: ShoesListSubpresenterOfBannerSpec,
          nameProvider: NameProvidable) {
         
         self.fetchShoesUseCase = fetchShoesUseCase
         self.fetchLocalShoesUseCaseSpec = fetchLocalShoesUseCaseSpec
         self.router = router
+        self.bannerPresenter = bannerPresenter
         self.nameProvider = nameProvider
     }
     
@@ -48,15 +55,20 @@ class ShoesListPresenter<AnyFetchShoesUseCase>: ShoesListPresenterSpec where Any
     var rowOfList: Int { return shoes.count }
     
     func setup() {
-        let initialModel = ShoesListViewInitialModel(title: nameProvider.name)
-        eventReceiver?.receivedEventOfSetupViews(with: initialModel)
+        let setupModel = ShoesListViewSetupModel(title: nameProvider.name)
+        eventReceiver?.receivedEventOfSetupViews(with: setupModel)
         fetchLoaclShoes()
     }
     
-    func fetchData() {
+    func viewWillAppear() {
         fetchShoes()
+        bannerPresenter.receivedEventOfReloadFromSuperPresenter()
     }
     
+    func didDropDownList() {
+        fetchShoes()
+    }
+
     func getCellModel(by row: Int) -> ShoesListCellModel {
         let theShoes = shoes[row]
         return ShoesListCellModel(
@@ -74,6 +86,7 @@ class ShoesListPresenter<AnyFetchShoesUseCase>: ShoesListPresenterSpec where Any
     private let fetchShoesUseCase: AnyFetchShoesUseCase
     private let fetchLocalShoesUseCaseSpec: AnyFetchShoesUseCase
     private let router: ShoesListRouterSpec
+    private let bannerPresenter: ShoesListSubpresenterOfBannerSpec
     private let nameProvider: NameProvidable
     private var shoes: [ShoesModel] = []
     

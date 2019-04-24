@@ -24,9 +24,9 @@ struct ShoesListViewBuilder: ViewBuilderSpec {
             fetchShoesUseCase: fetchShoesUseCaes,
             fetchLocalShoesUseCaseSpec: fetchLocalShoesUseCaes,
             router: ShoesListRouter(performer: vc),
+            bannerPresenter: vc.bannerViewController.presenter,
             nameProvider: ProjectNameHelper()
         )
-        vc.bannerViewController = ShoesListBannerBuilder().build()
         vc.presenter.eventReceiver = vc
         return vc
     }

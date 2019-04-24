@@ -17,12 +17,18 @@ struct FetchBannerUseCase: FetchDataUseCaseSpec {
     }
     
     func fetchDataModel(_ completionHandler: @escaping FetchDataModelUseCaseCompletionHandler) {
-        repository.fetchBanners { (result) in
-            switch result {
-            case .success(let dataModel):
-                completionHandler(Result.success(dataModel.map(self.mapBanner)))
-            case .failure(let error):
-                completionHandler(Result.failure(error))
+        DispatchQueue.global().async {
+            self.repository.fetchBanners { (result) in
+                switch result {
+                case .success(let dataModel):
+                    DispatchQueue.main.async(execute: {
+                        completionHandler(Result.success(dataModel.map(self.mapBanner).shuffled()))
+                    })
+                case .failure(let error):
+                    DispatchQueue.main.async {
+                        completionHandler(Result.failure(error))
+                    }
+                }
             }
         }
     }

@@ -11,24 +11,12 @@ import UIKit
 class ShoesListBannerViewController: BaseViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    var presenter: ShoesListBannerPresenterSpec!
+    var presenter: (ShoesListBannerPresenterSpec & ShoesListSubpresenterOfBannerSpec)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        presenter.eventReceiver = self
-        presenter.fetchBanners()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        presenter.eventReceiver = nil
+        presenter.setup()
     }
     
     // MARK: private
@@ -48,7 +36,7 @@ class ShoesListBannerViewController: BaseViewController {
             }
         }
     }
-    
+
     private func setupCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
