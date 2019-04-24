@@ -34,7 +34,7 @@ class ShoesListViewController: BaseViewController {
         super.viewWillAppear(animated)
 
         presenter.eventReceiver = self
-        presenter.fetchData()
+        presenter.viewWillAppear()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -77,7 +77,7 @@ class ShoesListViewController: BaseViewController {
     private let bannerHeight: CGFloat = UIScreen.main.bounds.width / 3
     
     @objc private func refreshControlDidPull() {
-        presenter.fetchData()
+        presenter.didDropDownList()
     }
     
     private func setupTableView() {
@@ -133,8 +133,8 @@ class ShoesListViewController: BaseViewController {
 
 extension ShoesListViewController: ShoesListViewEventReceiverable {
     
-    func receivedEventOfSetupViews(with initialModel: ShoesListViewInitialModel) {
-        title = initialModel.title
+    func receivedEventOfSetupViews(with setupModel: ShoesListViewSetupModel) {
+        title = setupModel.title
     }
     
     func receivedEventOfRefreshList() {

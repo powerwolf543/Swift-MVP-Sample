@@ -55,9 +55,9 @@ enum ShoesDetailRow: Int {
 
 extension ShoesDetailViewController: ShoesDetailViewEventReceiverable {
     
-    func receivedEventOfSetupViews(with initialModel: ShoesDetailViewInitialModel) {
-        productImageView.image = UIImage(named: initialModel.productImageName)
-        title = initialModel.title
+    func receivedEventOfSetupViews(with setupModel: ShoesDetailViewSetupModel) {
+        productImageView.image = UIImage(named: setupModel.productImageName)
+        title = setupModel.title
     }
 }
 

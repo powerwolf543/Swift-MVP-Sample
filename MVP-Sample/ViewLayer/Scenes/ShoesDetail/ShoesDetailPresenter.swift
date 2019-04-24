@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ShoesDetailViewEventReceiverable: class {
-    func receivedEventOfSetupViews(with initialModel: ShoesDetailViewInitialModel)
+    func receivedEventOfSetupViews(with setupModel: ShoesDetailViewSetupModel)
 }
 
 protocol ShoesDetailPresenterSpec {
@@ -23,7 +23,7 @@ protocol ShoesDetailPresenterSpec {
     func getDescriptionCellModel() -> ShoesDetailDescriptionCellModel
 }
 
-struct ShoesDetailViewInitialModel {
+struct ShoesDetailViewSetupModel {
     let title: String
     let productImageName: String
 }
@@ -38,8 +38,8 @@ class ShoesDetailPresenter: ShoesDetailPresenterSpec {
     }
     
     func setup() {
-        let initialModel = ShoesDetailViewInitialModel(title: "Detail", productImageName: shoes.imageName)
-        eventReceiver?.receivedEventOfSetupViews(with: initialModel)
+        let setupModel = ShoesDetailViewSetupModel(title: "Detail", productImageName: shoes.imageName)
+        eventReceiver?.receivedEventOfSetupViews(with: setupModel)
     }
     
     func getRowType(by row: Int) -> ShoesDetailRow {
