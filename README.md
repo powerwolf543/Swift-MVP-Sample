@@ -2,7 +2,7 @@
 
 # Swift-MVP-Sample
 
-It's a iOS simple project that how I implement `MVP` (Model-View-Presenter) and `Clean Architecture` in Swift. 
+It's an iOS simple project that how I implement `MVP` (Model-View-Presenter) and `Clean Architecture` in Swift. 
 
 ## Requirements
 
